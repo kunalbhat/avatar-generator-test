@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Artwork!</title>
+    <link href="style.css" rel="stylesheet">
+    <script
+			  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+			  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+			  crossorigin="anonymous">
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Art</h1>
+    </header>
+    <main class="site-container">
+      <section id="gallery" class="gallery-container">
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>&copy; Kunal Bhat</p>
+    </footer>
+  </body>
+
+  <script type="text/javascript">
+    const max_count = 64;
+
+    const background_colors = ['#F72585', '#B5179E', '#7209B7', '#560BAD', '#480CA8', '#3A0CA3', '#3F37C9', '#4361EE', '#4895EF', '#4CC9F0', '#ffcad4', '#ece2d0', '#96c5b0', '#ff312e', '#ebf5df'];
+    const face_colors = ['#8E9AAF', '#CBC0D3', '#EFD3D7', '#DEE2FF', '#eddcd2', '#FEEAFA', '#e5989b', '#d89a9e', '#f4dbd8'];
+    const eye_color = ['#F8EDEB', '#E8E8E4', '#FFE5D9', '#ECE4DB', '#ecf8f8', '#eee4e1'];
+    const retina_colors = ['#6a994e', '#ea9ab2', '#004e89', '#9f6976', '#b8d0eb', '#02c39a'];
+    const hair_colors = ['#7B1E7A', '#B33F62', '#ffd300', '#ff99c8', '#f3c677', '#e4c1f9', '#372549', '#adf1d2'];
+    const mouth_colors = ['#ffa69e', '#d81159', '#e8ddb5', '#bfd7ff', '#ffcad4', '#ffeedd', '#ffa69e'];
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    function determineMustache() {
+      if(getRandomInt(2) === 1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function generateName() {
+      let consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'];
+      let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+
+      first_chunk = consonants[getRandomInt(consonants.length)];
+      second_chunk = vowels[getRandomInt(vowels.length)];
+      third_chunk = consonants[getRandomInt(consonants.length)];
+
+      name = first_chunk + second_chunk + third_chunk;
+      name.replace(',', '');
+
+      return name;
+    }
+
+    for (let i=1; i<max_count; i++) {
+      let generatedId = "0000" + i+1;
+      let bgColor = background_colors[getRandomInt(background_colors.length)];
+      let faceColor = face_colors[getRandomInt(face_colors.length)];
+      let eyeColor = eye_color[getRandomInt(eye_color.length)];
+      let retinaColor = retina_colors[getRandomInt(retina_colors.length)];
+      let hairColor = hair_colors[getRandomInt(hair_colors.length)];
+      let mouthColor = mouth_colors[getRandomInt(mouth_colors.length)];
+      let name = generateName();
+      let showMustache = determineMustache();
+
+      console.log(showMustache);
+
+      if (showMustache === true) {
+        mustacheDisplay = 'visible';
+      } else {
+        mustacheDisplay = 'hidden';
+      }
+
+      $('#gallery').append( '<div class="frame"><span class="artwork" style="background-color: ' + bgColor + '" data-bgcolor="' + bgColor + '"><span class="hair" style="background-color: ' + hairColor + '"></span><span class="face" style="background-color: ' + faceColor + '"><span class="eyes"><span class="eye left-eye" style="background-color: ' + eyeColor + '"><span class="retina" style="background-color: ' + retinaColor + '"></span></span><span class="eye right-eye" style="background-color: ' + eyeColor + '"><span class="retina" style="background-color: ' + retinaColor + '"></span></span></span><span class="mouth" style="background-color: ' + mouthColor + '"></span><span class="mustache ' + mustacheDisplay + '" style="background-color: ' + hairColor + '"></span><span class="beard"></span></span></span><p class="name">' + name + '</p><p class="title">#' + generatedId  + '</p></div>' );
+    }
+
+    function calculateStats() {
+    }
+
+  </script>
+</html>
