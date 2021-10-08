@@ -1,21 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap');
 
 body {
+    background: #1a1c4a;
     font-family: 'Work Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .site-header {
+    color: white;
     padding: 2rem;
 }
 
 .site-container {
     padding: 1rem;
-}
-
-.site-container {
-
 }
 
 .site-footer {
@@ -87,9 +85,38 @@ body {
     display: block;
     height: 69%;
     left: 35px;
+    opacity: 0.65;
     position: absolute;
     top: 30px;
-    width: 69%;    
+    width: 69%;
+}
+
+.ear {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top: 2px solid rgba(0, 0, 0, 0.15);
+    border-left: 2px solid rgba(0, 0, 0, 0.15);
+    height: 60px;
+    left: -4%;
+    width: 30px;
+    display: block;
+    top: 25%;
+    position: absolute;
+}
+
+.ear:after {
+    background: rgba(0, 0, 0, 0.10);
+    border-radius: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 20px;
+    content: "";
+    display: block;
+    height: 50%;
+    left: 10%;
+    top: 10%;
+    width: 30%;
+    position: absolute;
 }
 
 .eyes {
@@ -110,6 +137,7 @@ body {
     height: 2rem;
     position: relative;
     width: 2rem;
+    z-index: 7;
 }
 
 .retina {
@@ -135,20 +163,22 @@ body {
     width: 9rem;
 }
 
-.mustache {
+.brow {
+    border-radius: 5px;
     height: 12px;
     left: 20%;
     opacity: 0.75;
     position: absolute;
-    top: 25%;
+    top: 27%;
     width: 120px;
+    z-index: 5;
 }
 
-.mustache.visible {
+.brow.visible {
     display: initial;
 }
 
-.mustache.hidden {
+.brow.hidden {
     display: none;
 }
 
@@ -184,10 +214,6 @@ body {
 h1, p {
     margin: 0;
     padding: 0;
-}
-
-.title {
-    
 }
 
 .name {

@@ -37,7 +37,7 @@
       return Math.floor(Math.random() * max);
     }
 
-    function determineMustache() {
+    function returnBoolean() {
       if(getRandomInt(2) === 1) {
         return true;
       } else {
@@ -68,21 +68,15 @@
       let hairColor = hair_colors[getRandomInt(hair_colors.length)];
       let mouthColor = mouth_colors[getRandomInt(mouth_colors.length)];
       let name = generateName();
-      let showMustache = determineMustache();
+      let showBrow = returnBoolean();
 
-      console.log(showMustache);
-
-      if (showMustache === true) {
-        mustacheDisplay = 'visible';
+      if (showBrow === true) {
+        browDisplay = 'visible';
       } else {
-        mustacheDisplay = 'hidden';
+        browDisplay = 'hidden';
       }
 
-      $('#gallery').append( '<div class="frame"><span class="artwork" style="background-color: ' + bgColor + '" data-bgcolor="' + bgColor + '"><span class="hair" style="background-color: ' + hairColor + '"></span><span class="face" style="background-color: ' + faceColor + '"><span class="eyes"><span class="eye left-eye" style="background-color: ' + eyeColor + '"><span class="retina" style="background-color: ' + retinaColor + '"></span></span><span class="eye right-eye" style="background-color: ' + eyeColor + '"><span class="retina" style="background-color: ' + retinaColor + '"></span></span></span><span class="mouth" style="background-color: ' + mouthColor + '"></span><span class="mustache ' + mustacheDisplay + '" style="background-color: ' + hairColor + '"></span><span class="beard"></span></span></span><p class="name">' + name + '</p><p class="title">#' + generatedId  + '</p></div>' );
+      $('#gallery').append( '<div class="frame"><span class="artwork" style="background-color: ' + bgColor + '" data-bgcolor="' + bgColor + '"><span class="hair" style="background-color: ' + hairColor + '"></span><span class="face" style="background-color: ' + faceColor + '"><span class="ear" style="background-color: ' + faceColor + '"></span><span class="eyes"><span class="eye left-eye" style="background-color: ' + eyeColor + '"><span class="retina" style="background-color: ' + retinaColor + '"></span></span><span class="eye right-eye" style="background-color: ' + eyeColor + '"><span class="retina" style="background-color: ' + retinaColor + '"></span></span></span><span class="mouth" style="background-color: ' + mouthColor + '"></span><span class="brow ' + browDisplay + '" style="background-color: ' + hairColor + '"></span><span class="beard"></span></span></span><p class="name">' + name + '</p><p class="title">#' + generatedId  + '</p></div>' );
     }
-
-    function calculateStats() {
-    }
-
   </script>
 </html>
